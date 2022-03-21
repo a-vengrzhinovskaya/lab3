@@ -31,6 +31,7 @@ namespace lab3
             Console.WriteLine("Enter matrix name: ");
             var name = Console.ReadLine();
 
+            Console.WriteLine("\n");
             Console.WriteLine("Generate random matrix?\n");
             Console.WriteLine("no         0");
             Console.WriteLine("yes        1");
@@ -54,6 +55,7 @@ namespace lab3
             var size = 0;
             while (notSet) {
 
+                Console.WriteLine("\n");
                 Console.WriteLine("Enter matrix size: ");
 
                 if (!int.TryParse(Console.ReadLine(), out size) || size <= 1) {
@@ -67,6 +69,7 @@ namespace lab3
 
             notSet = true;
 
+            Console.WriteLine("\n");
             Console.WriteLine("Generate random elements?\n");
             Console.WriteLine("no         0");
             Console.WriteLine("yes        1");
@@ -85,6 +88,8 @@ namespace lab3
                 }
             }
 
+            notSet = true;
+
             var elements = new double[size, size];
             int currentElement;
             for (var rowIndex = 0; rowIndex < size; ++rowIndex) {
@@ -97,14 +102,16 @@ namespace lab3
 
                         if (!int.TryParse(Console.ReadLine(), out currentElement)) {
 
+                            Console.WriteLine("Incorrect value. Try again.");
+                        } else {
+
                             elements[rowIndex, columnIndex] = currentElement;
 
                             notSet = false;
-                        } else {
-
-                            Console.WriteLine("Incorrect value. Try again.");
                         }
                     }
+
+                    notSet = true;
                 }
             }
 
@@ -115,7 +122,25 @@ namespace lab3
 
             Console.WriteLine($"Determinant: {matrix.Determinant()}");
             Console.WriteLine($"Hash code: {matrix.GetHashCode}");
+            Console.WriteLine($"Sum of elements: {matrix.SumOfElements()}");
             Console.WriteLine($"As string: {matrix}");
+        }
+
+        private string Comparison(SquareMatrixClone left, SquareMatrixClone right) {
+
+            if (left > right)
+            {
+
+                return $"{left.Name} > {right.Name}";
+            }
+            else if (left < right)
+            {
+
+                return $"{left.Name} < {right.Name}";
+            } else {
+
+                return $"{left.Name} = {right.Name}";
+            }
         }
 
         public void Calculator() {
@@ -140,6 +165,7 @@ namespace lab3
             Console.WriteLine("multiply      2");
             Console.WriteLine("compare       3");
             Console.WriteLine("info          4");
+            Console.WriteLine("transpose     5");
             var option = true;
             while (option) {
 
@@ -147,7 +173,8 @@ namespace lab3
 
                     case "0":
                         try {
-                            var result = left + right;
+                            var result = left.Clone() as SquareMatrix;
+                            result += right;
 
                             result.PrintMatrix();
                         }
@@ -156,11 +183,13 @@ namespace lab3
 
                             break;
                         }
+
                         option = false;
                         break;
                     case "1":
                         try {
-                            var result = left - right;
+                            var result = left.Clone() as SquareMatrix;
+                            result -= right;
 
                             result.PrintMatrix();
                         }
@@ -169,11 +198,13 @@ namespace lab3
 
                             break;
                         }
+
                         option = false;
                         break;
                     case "2":
                         try {
-                            var result = left * right;
+                            var result = left.Clone() as SquareMatrix;
+                            result *= right;
 
                             result.PrintMatrix();
                         }
@@ -182,15 +213,31 @@ namespace lab3
 
                             break;
                         }
+
                         option = false;
                         break;
                     case "3":
+                        Console.WriteLine(Comparison(left, right));
+
                         option = false;
                         break;
                     case "4":
+                        Console.WriteLine("\n");
                         GetMatrixInfo(left);
                         Console.WriteLine();
                         GetMatrixInfo(right);
+
+                        option = false;
+                        break;
+                    case "5":
+                        var tMatrix = left.Clone() as SquareMatrix;
+                        tMatrix = tMatrix.Transpose();
+                        tMatrix.PrintMatrix();
+
+                        tMatrix = right.Clone() as SquareMatrix;
+                        tMatrix = tMatrix.Transpose();
+                        tMatrix.PrintMatrix();
+
                         option = false;
                         break;
                     default:

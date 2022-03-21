@@ -71,33 +71,31 @@ namespace lab3 {
             }
         }
 
+        public double SumOfElements() {
+
+            double sum = 0;
+
+            for (var rowIndex = 0; rowIndex < Size; ++rowIndex) {
+
+                for (var columnIndex = 0; columnIndex < Size; ++columnIndex) {
+
+                    sum += Matrix[rowIndex, columnIndex];
+                }
+            }
+
+            return sum;
+        }
+
         public double Determinant() {
 
-            double mainDiagonal = 0, antiDiagonal = 0; 
+            if (this.Size == 2) {
 
-            for (var rowIndex = 0; rowIndex < this.Size; ++rowIndex) {
-
-                for (var columnIndex = 0; columnIndex < this.Size; ++rowIndex) {
-
-                    mainDiagonal += this.Matrix[rowIndex, columnIndex];
-
-                    break;
-                }
+                return (this.Matrix[0, 0] * this.Matrix[1, 1] - this.Matrix[0, 1] * this.Matrix[1, 0]);
             }
 
-            for (var rowIndex = this.Size; rowIndex >= 0; --rowIndex) {
+            var matrix = new SquareMatrix(this.Size - 1, "Result");
 
-                for (var columnIndex = 0; columnIndex < this.Size; --columnIndex) {
-
-                    antiDiagonal += this.Matrix[rowIndex, columnIndex];
-
-                    break;
-                }
-            }
-
-            var result = mainDiagonal - antiDiagonal;
-
-            return result;
+            return matrix.SumOfElements();
         }
 
         public SquareMatrix Transpose() {
