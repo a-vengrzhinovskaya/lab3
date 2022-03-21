@@ -12,7 +12,15 @@ namespace lab3 {
 
 		static void Main(string[] args) {
 
-			MatrixCalculator.GetInstance.Calculator();
+			//MatrixCalculator.GetInstance.Calculator();
+
+			var left = new SquareMatrixClone(2, "A");
+			var right = new SquareMatrixClone(2, "B");
+
+			left.PrintMatrix();
+			right.PrintMatrix();
+
+			Console.WriteLine(left.Determinant());
 		}
 	}
 }

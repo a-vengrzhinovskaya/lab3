@@ -115,7 +115,7 @@ namespace lab3
 
             Console.WriteLine($"Determinant: {matrix.Determinant()}");
             Console.WriteLine($"Hash code: {matrix.GetHashCode}");
-            Console.WriteLine($"As string: {matrix.ToString}");
+            Console.WriteLine($"As string: {matrix}");
         }
 
         public void Calculator() {
@@ -188,6 +188,9 @@ namespace lab3
                         option = false;
                         break;
                     case "4":
+                        GetMatrixInfo(left);
+                        Console.WriteLine();
+                        GetMatrixInfo(right);
                         option = false;
                         break;
                     default:

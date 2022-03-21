@@ -77,7 +77,7 @@ namespace lab3 {
 
             for (var rowIndex = 0; rowIndex < this.Size; ++rowIndex) {
 
-                for (var columnIndex = 0; columnIndex < this.Size; ++columnIndex) {
+                for (var columnIndex = 0; columnIndex < this.Size; ++rowIndex) {
 
                     mainDiagonal += this.Matrix[rowIndex, columnIndex];
 
@@ -87,7 +87,7 @@ namespace lab3 {
 
             for (var rowIndex = this.Size; rowIndex >= 0; --rowIndex) {
 
-                for (var columnIndex = 0; columnIndex < this.Size; ++columnIndex) {
+                for (var columnIndex = 0; columnIndex < this.Size; --columnIndex) {
 
                     antiDiagonal += this.Matrix[rowIndex, columnIndex];
 
