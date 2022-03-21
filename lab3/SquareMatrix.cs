@@ -100,7 +100,7 @@ namespace lab3 {
 
         public SquareMatrix Transpose() {
 
-            var tMatrix = new SquareMatrix(this.Size, this.Name);
+            var tMatrix = new SquareMatrix(this.Size, $"{this.Name} transposed");
 
             for (var rowIndex = 0; rowIndex < this.Size; ++rowIndex) {
 
@@ -138,18 +138,18 @@ namespace lab3 {
 
                 var param = obj as SquareMatrix;
 
-                if (param.Determinant() > this.Determinant()) {
+                if (param.SumOfElements() > this.SumOfElements()) {
 
                     return -1;
                 }
 
-                if (param.Determinant() < this.Determinant())
+                if (param.SumOfElements() < this.SumOfElements())
                 {
 
                     return 1;
                 }
 
-                if (param.Determinant() == this.Determinant())
+                if (param.SumOfElements() == this.SumOfElements())
                 {
 
                     return 0;
@@ -189,7 +189,7 @@ namespace lab3 {
 
         public override int GetHashCode() {
 
-            return (int)this.Determinant();
+            return (Int32)this.SumOfElements();
         }
 
         public static SquareMatrix operator + (SquareMatrix left, SquareMatrix right) {
@@ -280,7 +280,7 @@ namespace lab3 {
 
         public static bool operator > (SquareMatrix left, SquareMatrix right) {
 
-            if (left.Determinant() > right.Determinant()) {
+            if (left.SumOfElements() > right.SumOfElements()) {
 
                 return true;
             }
@@ -290,7 +290,7 @@ namespace lab3 {
 
         public static bool operator < (SquareMatrix left, SquareMatrix right) {
 
-            if (left.Determinant() < right.Determinant()) {
+            if (left.SumOfElements() < right.SumOfElements()) {
 
                 return true;
             }
@@ -300,7 +300,7 @@ namespace lab3 {
 
         public static bool operator >= (SquareMatrix left, SquareMatrix right) {
 
-            if (left.Determinant() >= right.Determinant()) {
+            if (left.SumOfElements() >= right.SumOfElements()) {
 
                 return true;
             }
@@ -310,7 +310,7 @@ namespace lab3 {
 
         public static bool operator <= (SquareMatrix left, SquareMatrix right) {
 
-            if (left.Determinant() <= right.Determinant()) {
+            if (left.SumOfElements() <= right.SumOfElements()) {
 
                 return true;
             }
@@ -408,16 +408,21 @@ namespace lab3 {
 
         public void PrintMatrix() {
 
+            var row = "";
+
             Console.WriteLine($"Matrix {this.Name}:\n");
 
             for (var rowIndex = 0; rowIndex < this.Size; ++rowIndex) {
 
                 for (var columnIndex = 0; columnIndex < this.Size; ++columnIndex) {
 
-                    Console.WriteLine($"{this.Matrix[rowIndex, columnIndex]}\t");
+                    row += $"{this.Matrix[rowIndex, columnIndex]}\t";
                 }
 
+                Console.WriteLine(row);
                 Console.WriteLine();
+
+                row = "";
             }
         }
     }
