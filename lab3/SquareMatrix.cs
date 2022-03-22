@@ -382,7 +382,7 @@ namespace lab3 {
                 for (var columnIndex = 0; columnIndex < matrix.Size; ++columnIndex)
                 {
 
-                    result += ($"Element {elementCount}: {matrix.Matrix[rowIndex, columnIndex]} ");
+                    result += ($"Element {elementCount}: {matrix.Matrix[rowIndex, columnIndex]}  ");
 
                     ++elementCount;
                 }
