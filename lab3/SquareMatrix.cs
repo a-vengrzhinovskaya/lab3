@@ -233,11 +233,9 @@ namespace lab3 {
 
             var elementsCount = 0;
 
-            for (var rowIndex = 0; rowIndex < left.Size; ++rowIndex)
-            {
+            for (var rowIndex = 0; rowIndex < left.Size; ++rowIndex) {
 
-                for (var columnIndex = 0; columnIndex < left.Size; ++columnIndex)
-                {
+                for (var columnIndex = 0; columnIndex < left.Size; ++columnIndex) {
 
                     elements[rowIndex, columnIndex] = left.Matrix[rowIndex, columnIndex] - right.Matrix[rowIndex, columnIndex];
 
@@ -249,8 +247,7 @@ namespace lab3 {
             return new SquareMatrix(left.Size, name, elements);
         }
 
-        public static SquareMatrix operator * (SquareMatrix left, SquareMatrix right)
-        {
+        public static SquareMatrix operator * (SquareMatrix left, SquareMatrix right) {
             if (left.Size != right.Size) {
 
                 throw new SquareMatrixSizeException("Matrices must be of the same size.");
@@ -262,11 +259,9 @@ namespace lab3 {
 
             var elementsCount = 0;
 
-            for (var rowIndex = 0; rowIndex < left.Size; ++rowIndex)
-            {
+            for (var rowIndex = 0; rowIndex < left.Size; ++rowIndex) {
 
-                for (var columnIndex = 0; columnIndex < left.Size; ++columnIndex)
-                {
+                for (var columnIndex = 0; columnIndex < left.Size; ++columnIndex) {
 
                     elements[rowIndex, columnIndex] = left.Matrix[rowIndex, columnIndex] * right.Matrix[rowIndex, columnIndex];
 
@@ -376,11 +371,9 @@ namespace lab3 {
 
             var result = "";
 
-            for (var rowIndex = 0; rowIndex < matrix.Size; ++rowIndex)
-            {
+            for (var rowIndex = 0; rowIndex < matrix.Size; ++rowIndex) {
 
-                for (var columnIndex = 0; columnIndex < matrix.Size; ++columnIndex)
-                {
+                for (var columnIndex = 0; columnIndex < matrix.Size; ++columnIndex) {
 
                     result += ($"Element {elementCount}: {matrix.Matrix[rowIndex, columnIndex]}  ");
 

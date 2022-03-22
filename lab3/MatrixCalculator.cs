@@ -1,9 +1,7 @@
 ﻿using System;
 
-namespace lab3
-{
-    public class MatrixCalculator
-    {
+namespace lab3 {
+    public class MatrixCalculator {
 
         private static MatrixCalculator instance;
 
