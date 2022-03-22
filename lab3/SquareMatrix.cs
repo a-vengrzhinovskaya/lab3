@@ -4,9 +4,9 @@ namespace lab3 {
 
     public class SquareMatrix : IComparable {
 
-        public int Size { get; set; }
+        public int Size { get; protected set; }
 
-        public string Name { get; set; }
+        public string Name { get; protected set; }
 
         public double[,] Matrix;
 
