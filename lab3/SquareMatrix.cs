@@ -4,11 +4,11 @@ namespace lab3 {
 
     public class SquareMatrix : IComparable {
 
-        public int Size { get; protected set; }
+        public int Size { get; set; }
 
-        public string Name { get; protected set; }
+        public string Name { get; set; }
 
-        public double[,] Matrix;
+        public double[,] Matrix { get; set; }
 
         public SquareMatrix() {
 
@@ -123,7 +123,7 @@ namespace lab3 {
 
                 for (var columnIndex = 0; columnIndex < this.Size; ++columnIndex) {
 
-                    result += ($"Element {elementCount}: {this.Matrix[rowIndex, columnIndex]}, ");
+                    result += ($"Element {elementCount}: {this.Matrix[rowIndex, columnIndex]}  ");
 
                     ++elementCount;
                 }
@@ -239,7 +239,7 @@ namespace lab3 {
                 for (var columnIndex = 0; columnIndex < left.Size; ++columnIndex)
                 {
 
-                    elements[rowIndex, columnIndex] = left.Matrix[rowIndex, columnIndex] + right.Matrix[rowIndex, columnIndex];
+                    elements[rowIndex, columnIndex] = left.Matrix[rowIndex, columnIndex] - right.Matrix[rowIndex, columnIndex];
 
                     ++elementsCount;
                 }
@@ -382,7 +382,7 @@ namespace lab3 {
                 for (var columnIndex = 0; columnIndex < matrix.Size; ++columnIndex)
                 {
 
-                    result += ($"Element {elementCount}: {matrix.Matrix[rowIndex, columnIndex]}, ");
+                    result += ($"Element {elementCount}: {matrix.Matrix[rowIndex, columnIndex]}  ");
 
                     ++elementCount;
                 }
