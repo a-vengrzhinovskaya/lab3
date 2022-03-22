@@ -143,14 +143,12 @@ namespace lab3 {
                     return -1;
                 }
 
-                if (param.SumOfElements() < this.SumOfElements())
-                {
+                if (param.SumOfElements() < this.SumOfElements()) {
 
                     return 1;
                 }
 
-                if (param.SumOfElements() == this.SumOfElements())
-                {
+                if (param.SumOfElements() == this.SumOfElements()) {
 
                     return 0;
                 }
